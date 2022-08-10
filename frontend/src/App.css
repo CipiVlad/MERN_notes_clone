@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap');
+
+
+/* colors
+#1C252D
+#1D272F
+#403737
+#2c3b4a
+#e1c01b
+*/
+
+.App {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.d-flex-nav-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 75px 0 0 20px;
+}
+
+.allNotes_parent_container {
+  display: flex;
+  justify-content: center;
+  background-color: #1d272f;
+  margin: 0 20%;
+  padding: 20px 0;
+  border-radius: 6px;
+  box-shadow: 1px 1px 50px 7px #141b20;
+}
+
+.allNotes_parent_container div {}
+
+#light {
+  background-color: rgb(244, 244, 202);
+  padding: 5vh 0;
+
+}
+
+#light a {
+  color: rgb(114, 231, 231);
+}
+
+#dark a {
+  color: white;
+}
+
+#light p {
+  color: black;
+}
+
+#dark p {}
+
+#dark {
+  background-color: #1c252d;
+  color: white;
+  padding: 5vh 0;
+
+}
+
+#dark h2:hover {
+  background-color: #2c3b4a;
+  color: #e1c01b;
+}
+
+#light h2:hover {
+  background-color: #393e43;
+  color: white;
+}
+
+#dark h2 {
+  /* border: 1px solid rgb(225, 192, 27); */
+  background-color: rgb(64, 55, 55);
+  color: #e1c01b;
+  border-radius: 6px;
+  padding: 14px;
+  margin: 14px;
+}
+
+#light h2 {
+  border: 1px solid rgb(77, 61, 61);
+  border-radius: 6px;
+  padding: 14px;
+  margin: 14px;
+}
+
+/* 
+.switch {
+  display: flex;
+  width: 80vw;
+  height: 100px;
+  justify-content: flex-end;
+  align-items: center;
+} */
+
+
+.searchField::placeholder {
+  color: #fff;
+}
+
+.searchField:hover {
+  border: 1px solid #e1c01b;
+  border-radius: 6px;
+  background-color: rgb(78, 72, 72);
+  color: rgb(255, 255, 255);
+}
+
+.title-field,
+.text-field {
+  background-color: #141b20;
+  color: white;
+}
