@@ -10,9 +10,8 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = 'en -US'
 
-function DictateNote() {
+function DictateNote({ audioNote, setAudioNote }) {
     const [isListening, setIsListening] = useState(false)
-    const [audioNote, setAudioNote] = useState('')
     const [savedNote, setSavedNote] = useState([])
 
     useEffect(() => {
@@ -58,9 +57,7 @@ function DictateNote() {
                 <StopIcon style={{ cursor: 'pointer' }} />
                 <FiberManualRecordIcon style={{ cursor: 'pointer' }} />
             </div>
-            {/* <p>{audioNote}</p> */}
-
-            <label htmlFor="">{audioNote}</label>
+            <p>{audioNote}</p>
             <div>
                 {savedNote.map(n => (
                     <p key={n}>{n}</p>
@@ -68,6 +65,14 @@ function DictateNote() {
             </div>
         </div>
     )
+}
+
+class Audio {
+    constructor(audioNote) {
+        this.audioNote = audioNote
+        return this
+    }
+
 }
 
 export default DictateNote

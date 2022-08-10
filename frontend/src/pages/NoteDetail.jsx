@@ -29,21 +29,31 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const NoteDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [detail, setDetail] = useState([]);
+    const [detail, setDetail] = useState({});
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [showEditFields, setShowEditFields] = useState(false);
     const id2 = detail._id
     console.log(id)
 
+    const [audioNote, setAudioNote] = useState("")
+
+
     useEffect(() => {
         fetch("http://localhost:1801/notes/details/" + id)
             .then(response => response.json())
-            .then(noteObj => setDetail(noteObj))
+            .then(noteObj => {
+                setDetail(noteObj)
+                console.log(noteObj)
+            }).then(() => {
+                console.log(detail)
+                setTitle(detail.title)
+                setText(detail.text)
+            })
     }, [id])
 
     const editNote = () => {
-        let note = { id2, title, text }
+        let note = { id2, title: audioNote }
         fetch(`http://localhost:1801/notes/edit/${id2}`, {
             method: "put",
             headers: {
@@ -127,11 +137,11 @@ const NoteDetail = () => {
                 <TextField
                     id="standard-multiline-flexible"
                     label="Edit Title"
-                    placeholder={`${detail.title}`}
+                    // placeholder={`${detail.title}`}
 
                     multiline
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={audioNote}
+                    onChange={(e) => setAudioNote(e.target.value)}
                     variant="filled"
                     rows={5}
 
@@ -139,7 +149,7 @@ const NoteDetail = () => {
                 <TextField
                     id="standard-textarea"
                     label="Edit Text"
-                    placeholder={`${detail.text}`}
+                    // placeholder={`${detail.text}`}
                     multiline
                     variant="filled"
                     value={text}
@@ -173,7 +183,7 @@ const NoteDetail = () => {
                         style={{ cursor: 'pointer' }}
                     />
                 </Tooltip>
-                <DictateNote />
+                <DictateNote audioNote={audioNote} setAudioNote={setAudioNote} />
             </div>
 
 

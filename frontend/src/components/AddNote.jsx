@@ -5,9 +5,10 @@ import DictateNote from './DictateNote';
 import TextField from '@mui/material/TextField';
 
 
-const AddNote = ({ show, setAllNotes, audioNote }) => {
+const AddNote = ({ show, setAllNotes }) => {
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
+    const [audioNote, setAudioNote] = useState("")
 
     const addNote = (e) => {
         e.preventDefault()
@@ -17,8 +18,7 @@ const AddNote = ({ show, setAllNotes, audioNote }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 title,
-                text,
-                audioNote
+                text: audioNote,
             })
         })
             .then((response) => response.json(), window.location.reload(true))
@@ -48,7 +48,7 @@ const AddNote = ({ show, setAllNotes, audioNote }) => {
                     multiline
                     variant="filled"
                     value={audioNote}
-                    onChange={(e) => setText(e.target.value)}
+                    onChange={(e) => setAudioNote(e.target.value)}
                     rows={5}
                 />
                 <br />
@@ -57,7 +57,7 @@ const AddNote = ({ show, setAllNotes, audioNote }) => {
                         style={{ cursor: 'pointer' }}
                     />
                 </Tooltip>
-                <DictateNote />
+                <DictateNote audioNote={audioNote} setAudioNote={setAudioNote} />
             </div>
 
         </div >
