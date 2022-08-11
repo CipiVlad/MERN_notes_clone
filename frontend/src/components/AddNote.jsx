@@ -4,7 +4,6 @@ import Tooltip from '@mui/material/Tooltip';
 import DictateNote from './DictateNote';
 import TextField from '@mui/material/TextField';
 
-
 const AddNote = ({ show, setAllNotes }) => {
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
@@ -25,22 +24,16 @@ const AddNote = ({ show, setAllNotes }) => {
             .then((addedNote) => setAllNotes((prevNotes) => [...prevNotes, addedNote]))
     }
     return (
-
         <div>
             <div style={{ display: show ? "" : "none" }}>
-                {/* <input className="title-field" type="text" placeholder="add title" id="" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <textarea className="text-field" value={text} onChange={(e) => setText(e.target.value)} placeholder="add note"></textarea> */}
                 <TextField
                     id="standard-multiline-flexible"
                     label="Add Title"
-                    // placeholder="Add Title"
-
                     multiline
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     variant="filled"
                     rows={5}
-
                 />
                 <TextField
                     id="standard-textarea"
@@ -59,7 +52,6 @@ const AddNote = ({ show, setAllNotes }) => {
                 </Tooltip>
                 <DictateNote audioNote={audioNote} setAudioNote={setAudioNote} />
             </div>
-
         </div >
     )
 }

@@ -52,7 +52,8 @@ function DictateNote({ audioNote, setAudioNote }) {
     return (
         <div style={{ marginTop: '5%', border: '2px dotted green', width: '50%', padding: '5%', marginLeft: '20%' }}>
             {isListening ? <span>recording ...</span> : <span></span>}
-            <Button variant="contained" color="success" onClick={handleSaveNote} disabled={!audioNote}>Save</Button>
+            {/* <Button variant="contained" color="success" onClick={handleSaveNote} disabled={!audioNote}>Save</Button> */}
+            <p>Audio Note</p>
             <div onClick={() => setIsListening(previousState => !previousState)}>
                 <StopIcon style={{ cursor: 'pointer' }} />
                 <FiberManualRecordIcon style={{ cursor: 'pointer' }} />
@@ -67,12 +68,5 @@ function DictateNote({ audioNote, setAudioNote }) {
     )
 }
 
-class Audio {
-    constructor(audioNote) {
-        this.audioNote = audioNote
-        return this
-    }
-
-}
 
 export default DictateNote

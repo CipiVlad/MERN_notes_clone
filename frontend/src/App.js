@@ -14,20 +14,17 @@ export const ThemeContext = createContext(null)
 function App() {
 
 const [show, setShow] = useState(false);
-const[theme,setTheme] = useState('dark')
-const toggleTheme = ()=>{
+const[theme,setTheme] = useState('dark');
 
+const toggleTheme = ()=>{
   setTheme((curr)=>(curr === 'dark' ? 'light':'dark'))
 }
 
   return (
     <div className="App" id={theme}>
         <ThemeContext.Provider value={{theme,toggleTheme}}>
-
       <div className="d-flex-nav-icons">
-  
-{/* <div className="switch"> */}
-      <div className="add">
+        <div className="add">
             <Tooltip title="Add" arrow>
             <PostAddIcon
               onClick={() => setShow((s) => !s)}
@@ -35,13 +32,13 @@ const toggleTheme = ()=>{
               />
             </Tooltip>
       </div>
-          <div className="upload_send">
+          {/* <div className="upload_send">
             <Tooltip title="Send" arrow>
               <SendIcon
               style={{ cursor: 'pointer' }}
               />
               </Tooltip>
-          </div>
+          </div> */}
   <div className="toggle">
               <ReactSwitch
               onChange={toggleTheme}
@@ -55,11 +52,8 @@ const toggleTheme = ()=>{
               activeBoxShadow = '0 0 20px 10px #fff'
               />
   </div>
-{/* </div> */}
       </div> 
-   
         <AddNote show={show} arrow />
-
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<AllNotes />} />

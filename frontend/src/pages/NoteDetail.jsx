@@ -1,4 +1,5 @@
 import React from "react"
+import gif from "../img/8RDg.gif"
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -53,7 +54,7 @@ const NoteDetail = () => {
     }, [id])
 
     const editNote = () => {
-        let note = { id2, title: audioNote }
+        let note = { id2, title, text: audioNote }
         fetch(`http://localhost:1801/notes/edit/${id2}`, {
             method: "put",
             headers: {
@@ -90,7 +91,7 @@ const NoteDetail = () => {
 
 
     if (detail) return (
-        <div>
+        <div >
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -140,8 +141,8 @@ const NoteDetail = () => {
                     // placeholder={`${detail.title}`}
 
                     multiline
-                    value={audioNote}
-                    onChange={(e) => setAudioNote(e.target.value)}
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     variant="filled"
                     rows={5}
 
@@ -152,8 +153,8 @@ const NoteDetail = () => {
                     // placeholder={`${detail.text}`}
                     multiline
                     variant="filled"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    value={audioNote}
+                    onChange={(e) => setAudioNote(e.target.value)}
                     rows={5}
 
                 />
@@ -184,6 +185,8 @@ const NoteDetail = () => {
                     />
                 </Tooltip>
                 <DictateNote audioNote={audioNote} setAudioNote={setAudioNote} />
+                <img src={gif} alt="" style={{ marginTop: '10vh' }} />
+                {console.log(gif)}
             </div>
 
 
@@ -194,7 +197,6 @@ const NoteDetail = () => {
                     <ArrowBackIcon />
                 </Tooltip>
             </a>
-
         </div >
     )
     else return (<h1>Loading...</h1>)

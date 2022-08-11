@@ -21,11 +21,9 @@ const theme = createTheme({
     },
 });
 
-
 const AllNotes = () => {
     const [allNotes, setAllNotes] = useState([])
     const [search, setSearch] = useState([])
-
 
     useEffect(() => {
         fetch('http://localhost:1801/notes/all')
@@ -38,7 +36,6 @@ const AllNotes = () => {
                 setSearch(json)
             }
             )
-
     }, [])
 
     //searchBar
@@ -51,7 +48,6 @@ const AllNotes = () => {
         setSearch(resultArray)
         console.log(resultArray)
     }
-
 
     return (
         <div onSubmit={handleSubmit}>
@@ -66,7 +62,6 @@ const AllNotes = () => {
                 </ThemeProvider>
                 <SearchIcon styles={{ cursor: 'pointer' }} color="green" />
             </div>
-
             <div styles={search ? 'block' : 'none'} className="allNotes_parent_container">
                 <div>
                     {
