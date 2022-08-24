@@ -10,7 +10,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Tooltip from '@mui/material/Tooltip';
 import moment from "moment";
 import SaveIcon from '@mui/icons-material/Save';
-
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -19,7 +18,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import DictateNote from "../components/DictateNote";
-
 import TextField from '@mui/material/TextField';
 
 
@@ -185,18 +183,16 @@ const NoteDetail = () => {
                     />
                 </Tooltip>
                 <DictateNote audioNote={audioNote} setAudioNote={setAudioNote} />
-                <img src={gif} alt="" style={{ marginTop: '10vh' }} />
+                {/* <img src={gif} alt="" style={{ marginTop: '10vh' }} /> */}
                 {console.log(gif)}
             </div>
-
-
-
             {/* back to AllNotes */}
             <a href="/" style={{ display: 'block' }}>
                 <Tooltip title="Back" arrow>
                     <ArrowBackIcon />
                 </Tooltip>
             </a>
+
         </div >
     )
     else return (<h1>Loading...</h1>)
