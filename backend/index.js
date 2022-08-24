@@ -14,7 +14,8 @@ app.use("/notes", notesRouter)
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Homepage')
+    res.send('works')
+ 
 });
 
 
