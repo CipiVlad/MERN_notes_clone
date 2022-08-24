@@ -3,6 +3,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import Tooltip from '@mui/material/Tooltip';
 import DictateNote from './DictateNote';
 import TextField from '@mui/material/TextField';
+import React from 'react'
 
 const AddNote = ({ show, setAllNotes }) => {
     const [title, setTitle] = useState('')

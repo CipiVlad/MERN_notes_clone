@@ -8,6 +8,7 @@ import AddNote from './components/AddNote.jsx';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import Tooltip from '@mui/material/Tooltip';
 import SendIcon from '@mui/icons-material/Send';
+import React from 'react'
 
 export const ThemeContext = createContext(null)
 
